@@ -68,20 +68,18 @@ headerbar, .titlebar {
     }
   }
 
-  // Linked image buttons (back and forward, plus and minus, etc)
-  .linked button.image-button {
-    //&:not(:disabled) { @extend %colored_hbuttons; }
-    //&:disabled { background-color: $hb_button_disabled_color; }
-    //&:backdrop:disabled { background-color: $hb_button_backdrop_color; }
-    border-radius: $button_radius;
+  // Toggle buttons should be visible
+  & > :not(.stack-switcher) .linked > button {
+    @extend %linked;
+    //@extend %button;
   }
 
   // some linked buttons needs to be alone
-  & > :not(.stack-switcher) .linked > button {
+  /*& > :not(.stack-switcher) .linked > button,:not(GtkToggleButton) {
     margin-right: 2px;
     border-radius: $button_radius;
     -gtk-outline-radius: $button_radius;
-  }
+  }*/
 
   // Stack buttons
   & > .stack-switcher.linked > button {
@@ -120,7 +118,7 @@ headerbar, .titlebar {
     &:backdrop:disabled { background-color: $hb_button_backdrop_color; }
   }
   // unlink linked entries
-  .linked entry:not(.search) {
+  /*.linked entry:not(.search) {
     border-color: transparent;
     border-radius: $button_radius;
     margin-left: 2px;
@@ -130,7 +128,7 @@ headerbar, .titlebar {
     ~ button {
       border-left-color: transparent;
     }
-  }
+  }*/
 
   // We want to match libadwaita's thinner buttons...
   button:not(.titlebutton) { margin: 6px 0; }
